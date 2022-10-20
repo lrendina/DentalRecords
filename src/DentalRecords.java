@@ -2,10 +2,13 @@ import java.util.Scanner;
 public class DentalRecords {
     private static final Scanner keyboard = new Scanner (System.in);
 
+    public static double roots(int A, int B, int C) {
+
+    }
     public static void main(String[] args) {
 
         // variable declaration
-        int numFamMembers, i, k;
+        int numFamMembers, i, j, k;
         String tooths;
 
         //input
@@ -76,29 +79,44 @@ public class DentalRecords {
         // checks input
         while (menuOption.charAt(0) != 'P' && menuOption.charAt(0) != 'E' && menuOption.charAt(0) != 'R' && menuOption.charAt(0) != 'X') {
             System.out.print("Invalid menu option, please try again\t\t: ");
-            menuOption = keyboard.next();
-            menuOption = menuOption.toUpperCase();
-        }
+            menuOption = (keyboard.next()).toUpperCase();
+            String famMember;
 
-        //print handling
-        if (menuOption.charAt(0) == 'P') {
-            for (i = 0; i < numFamMembers; i++)
-            System.out.println();
-        }
+            //print handling
+            if (menuOption.charAt(0) == 'P') {
+                for (i = 0; i < numFamMembers; i++){
+                    System.out.println(famNames[i]);
+                    System.out.print("\tUppers: ");
+                    for (j = 0; j < teeth[i][0].length; j++) {
+                        System.out.printf("%d:%c ", (j+1), teeth[i][0][j]);
+                    }
+                    System.out.println();
+                    System.out.print("\tLowers: ");
+                    for (j = 0; j < teeth[i][0].length; j++) {
+                        System.out.printf("%d:%c ", (j+1), teeth[i][1][j]);
+                    }
+                    System.out.println();
+                }
+                System.out.println();
+            }
 
-        //Extract handling
-        String famMember;
-        if (menuOption.charAt(0) == 'E') {
-            System.out.print("Which family member \t\t: ");
-            famMember = keyboard.next();
+            //Extract handling
+            else if (menuOption.charAt(0) == 'E') {
+                System.out.print("Which family member \t\t: ");
+                famMember = keyboard.next();
 
-        }
+            }
+            //root handling
+            else if (menuOption.charAt(0) == 'R') {
+                System.out.printf("One root canal at\t%f", );
+            }
+            // exit handling
+            else if (menuOption.charAt(0) == 'X') {
+                System.out.println("Exiting the Floridian Tooth Records :-)");
+                break;
+            }
 
-        // root handling
 
-        // exit handling
-        if (menuOption.charAt(0) == 'X') {
-            System.out.println("Exiting the Floridian Tooth Records :-)");
         }
 
         //processing
